@@ -32,7 +32,7 @@ score = 0
 Fspeed = 200
 def victoire():
     if score == 172:
-        messagebox.showinfo("Game", "YOU Win")
+        messagebox.showinfo("Game", "BRAVO")
         fen.destroy()
 
 def invincibilite():
@@ -56,16 +56,14 @@ def FRedMouvement():
     while FRedmur == 1:
         if murs[FRedy][FRedx] == 5:
             FRedDirection =randrange(1,5)
-        if murs[FRedy][FRedx] == 6:
+        elif murs[FRedy][FRedx] == 6:
             FRedDirection =randrange(1,5)
-        if murs[FRedy][FRedx] == 2:
+        elif murs[FRedy][FRedx] == 2:
             FRedDirection =randrange(1,5)
 
 
         if FRedDirection == 1:
-            if FRedx1 == 425:
-                zone.coords(FRed,25,225,50,250)
-            elif murs[FRedy][FRedx+1] == 1:
+            if murs[FRedy][FRedx+1] == 1:
                 FRedmur=1
             else:
                 FRedmur=0
@@ -73,9 +71,7 @@ def FRedMouvement():
                 #print("droite")
 
         elif FRedDirection == 2:
-            if FRedx1 == 0:
-                    zone.coords(FRed,450,225,475,250)
-            elif murs[FRedy][FRedx-1] == 1:
+            if murs[FRedy][FRedx-1] == 1:
                 FRedmur=1
             else:
                 FRedmur=0
@@ -100,13 +96,12 @@ def FRedMouvement():
 
         Pacmanx1,Pacmany1,Pacmanx2,Pacmany2 = zone.coords(Pacman)
         FRedx1,FRedy1,FRedx2,FRedy2 = zone.coords(FRed)
-        if FRedx1 == Pacmanx1:
-            if FRedy1 == Pacmany1:
-                if invincible == 0:
-                    messagebox.showinfo("Game", "YOU LOSE")
-                    fen.destroy()
-                else:
-                    zone.coords(FRed,225,225,250,250)
+        if FRedx1 == Pacmanx1 and FRedy1 == Pacmany1:
+            if invincible == 0:
+                messagebox.showinfo("Game", "GAME OVER")
+                fen.destroy()
+            else:
+                zone.coords(FRed,225,225,250,250)
 
 
 
@@ -129,9 +124,7 @@ def FPinkMouvement():
             FPinkDirection =randrange(1,5)
 
         if FPinkDirection == 1:
-            if FPinkx1 == 425:
-                zone.coords(FPink,25,225,50,250)
-            elif murs[FPinky][FPinkx+1] == 1:
+            if murs[FPinky][FPinkx+1] == 1:
                 FPinkmur=1
             else:
                 FPinkmur=0
@@ -139,9 +132,7 @@ def FPinkMouvement():
                 #print("droite")
 
         elif FPinkDirection == 2:
-            if FPinkx1 == 0:
-                zone.coords(FPink,450,225,475,250)
-            elif murs[FPinky][FPinkx-1] == 1:
+            if murs[FPinky][FPinkx-1] == 1:
                 FPinkmur=1
             else:
                 FPinkmur=0
@@ -166,13 +157,12 @@ def FPinkMouvement():
 
         Pacmanx1,Pacmany1,Pacmanx2,Pacmany2 = zone.coords(Pacman)
         FPinkx1,FPinky1,FPinkx2,FPinky2 = zone.coords(FPink)
-        if FPinkx1 == Pacmanx1:
-            if FPinky1 == Pacmany1:
-                if invincible == 0:
-                    messagebox.showinfo("Game", "YOU LOSE")
-                    fen.destroy()
-                else:
-                    zone.coords(FPink,225,225,250,250)
+        if FPinkx1 == Pacmanx1 and FPinky1 == Pacmany1:
+            if invincible == 0:
+                messagebox.showinfo("Game", "GAME OVER")
+                fen.destroy()
+            else:
+                zone.coords(FPink,225,225,250,250)
     fen.after(Fspeed, FPinkMouvement)
 
 
@@ -192,9 +182,7 @@ def FBlueMouvement():
             FBlueDirection =randrange(1,5)
 
         if FBlueDirection == 1:
-            if FBluex1 == 425:
-                zone.coords(FBlue,25,225,50,250)
-            elif murs[FBluey][FBluex+1] == 1:
+            if murs[FBluey][FBluex+1] == 1:
                 FBluemur=1
             else:
                 FBluemur=0
@@ -202,8 +190,6 @@ def FBlueMouvement():
                 #print("droite")
 
         elif FBlueDirection == 2:
-            if FBluex1 == 0:
-                zone.coords(FBlue,450,225,475,250)
             if murs[FBluey][FBluex-1] == 1:
                 FBluemur=1
             else:
@@ -229,13 +215,12 @@ def FBlueMouvement():
 
         Pacmanx1,Pacmany1,Pacmanx2,Pacmany2 = zone.coords(Pacman)
         FBlueFx1,FBluey1,FNluex2,FBluey2 = zone.coords(FBlue)
-        if FBluex1 == Pacmanx1:
-            if FBluey1 == Pacmany1:
-                if invincible == 0:
-                    messagebox.showinfo("Game", "YOU LOSE")
-                    fen.destroy()
-                else:
-                    zone.coords(FBlue,225,225,250,250)
+        if FBluex1 == Pacmanx1 and FBluey1 == Pacmany1:
+            if invincible == 0:
+                messagebox.showinfo("Game", "GAME OVER")
+                fen.destroy()
+            else:
+                zone.coords(FBlue,225,225,250,250)
     fen.after(Fspeed, FBlueMouvement)
 
 
@@ -255,10 +240,7 @@ def FOrangeMouvement():
             FOrangeDirection =randrange(1,5)
 
         if FOrangeDirection == 1:
-            if FOrangex1 == 425 :
-                zone.coords(FOrange,25,225,50,250)
-
-            elif murs[FOrangey][FOrangex+1] == 1:
+            if murs[FOrangey][FOrangex+1] == 1:
                 FOrangemur=1
             else:
                 FOrangemur=0
@@ -266,9 +248,7 @@ def FOrangeMouvement():
                 #print("droite")
 
         elif FOrangeDirection == 2:
-            if FOrangex1 == 0:
-                zone.coords(FOrange,450,225,475,250)
-            elif murs[FOrangey][FOrangex-1] == 1:
+            if murs[FOrangey][FOrangex-1] == 1:
                 FOrangemur=1
             else:
                 FOrangemur=0
@@ -293,29 +273,19 @@ def FOrangeMouvement():
 
         Pacmanx1,Pacmany1,Pacmanx2,Pacmany2 = zone.coords(Pacman)
         FOrangex1,FOrangey1,FOrangex2,FOrangey2 = zone.coords(FOrange)
-        if FOrangex1 == Pacmanx1:
-            if FOrangey1 == Pacmany1:
-                if invincible == 0:
-                    messagebox.showinfo("Game", "YOU LOSE")
-                    fen.destroy()
-                else:
-                    zone.coords(FOrange,225,225,250,250)
-
+        if FOrangex1 == Pacmanx1 and FOrangey1 == Pacmany1:
+            if invincible == 0:
+                messagebox.showinfo("Game", "GAME OVER")
+                fen.destroy()
+            else:
+                zone.coords(FOrange,225,225,250,250)
     fen.after(Fspeed, FOrangeMouvement)
-
-
-
-
-
-
-
-
 
 
 def PacmanDeplaceD(event):
     global score
     global tinvincible
-    Pacmanx1,Pacmany1,Pacmanx2,Pacmany2 = zone.coords(Pacman) #on récupère les coordonnées du perso
+    Pacmanx1,Pacmany1,Pacmanx2,Pacmany2 = zone.coords(Pacman)
     Pacmanx=int(Pacmanx1//25+1)
     Pacmany=int(Pacmany1//25)
     if Pacmanx1 == 450:
@@ -416,7 +386,7 @@ def PacmanDeplaceB(event):
             zone.delete(item)
         zone.coords(Pacman,Pacmanx1,Pacmany1+25,Pacmanx2,Pacmany2+25)
 
-#Fantome Rouge
+
 
 
 
@@ -427,14 +397,13 @@ fen = Tk()
 zone = Canvas(fen,height = 525, width=475,bg="ivory")
 zone.grid()
 
-Pacman = zone.create_oval(225,375,250,400,fill = "yellow",outline = "red",tags='perso') #creation de notre personnage
+Pacman = zone.create_oval(225,375,250,400,fill = "yellow",outline = "red",tags='perso')
 FRed = zone.create_oval(225,200,250,225,fill = "red",outline = "red")
 FPink = zone.create_oval(225,225,250,250,fill = "pink",outline = "pink")
 FBlue = zone.create_oval(200,225,225,250,fill = "blue",outline = "blue")
 FOrange = zone.create_oval(250,225,275,250,fill = "orange",outline = "orange")
 
 
-#FRed = zone.create_polygon(0,50,12,25,25,50,fill = "red",outline = "red") #creation de notre personnage
 
 #grille
 for i in range(19):
